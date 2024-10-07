@@ -1,59 +1,130 @@
-# K-Means Clustering for the coping strategies of Brief COPE Questionnaire
-This repository contains the code and results of a `K-means clustering` implementation to extract different groups of `coping strategies` that influence `resilience`.  
+---
 
-# Note: This repository is being built and will be completed in the next one day
-## Table of Contents
-+ Introduction
-+ Data
-+ Methodology
-+ Results
+# Module 1: Introduction to Data Science
 
-## Introduction
+This module will provide students with a strong foundation in what Data Science is, its applications, and the basic tools they’ll need to move forward in the course.
 
-The [Brief COPE](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/cope.rst) is a widely used self-report questionnaire that assesses coping strategies individuals use when faced with stress or challenging situations. The questionnaire consists of 28 items that measure 14 coping strategies *Self-distraction, Denial, Substance Use, Behavioural disengagement, Emotional Support, Venting, Humour, Acceptance, Self-Blame, Religion, Active Coping, Use of Instrumental Support, Positive Reframing*, and *Planning*.
+## Overview
 
-Understanding coping strategies’ impact on psychological `well-being` is key to identifying strategies that may serve as resources for successful adaptation. Existing research has explored the relationship between coping styles and various mental health variables, such as resilience. `Resilience` might be seen as a personality trait—a positive, distinct feature of an individual that mitigates the negative effects of stress and minimizes episodes of depression. 
+Welcome to the first module of the course! This module introduces you to the world of Data Science, its scope, and the role of a Data Scientist. By the end of this module, you will have a strong understanding of:
+- What Data Science is
+- Key concepts, terminology, and workflow in Data Science
+- Tools used in Data Science
+- Python setup for Data Science
 
-In this project, we apply the k-means clustering algorithm to cluster the coping strategies. The goal is to identify distinct groups of coping strategies that influence resilience. To do this, we first use different feature selection methods to extract important strategies that influence resilience. Then, we employ k-means clustering to cluster these coping strategies. Finally, by comparing the obtained clusters, strategies that can improve resilience are introduced.
+---
 
-## Data 
-We utilized a preexisting dataset provided by Konaszewski et al. (Konaszewski K, Niesiobędzka M, Surzykiewicz J. Resilience and mental health among juveniles: role of strategies for coping with stress. Health Qual Life Outcomes. 2021 Feb 18;19(1):58) https://doi.org/10.3886/E120001V1. They investigate the direct and indirect role of resilience in shaping the mental health of juveniles. The dataset includes resilience and 14 coping strategies. 
+## Learning Objectives
+By the end of this module, students will be able to:
+1. Define Data Science and explain its importance.
+2. Understand the Data Science workflow and key steps in a data project.
+3. Identify the tools and libraries used in Data Science.
+4. Set up a Python environment for Data Science.
 
-## Methodology
-### Feature Selection
-Before applying k-means clustering, we employ various feature selection techniques to extract important coping strategies that significantly influence resilience. The selected coping strategies are then used as input for the clustering algorithm. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
-### Clustering 
-Once the relevant coping strategies are identified, we utilize the [k-means clustering algorithm](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/kmeans.rst) to group them into distinct clusters 
-based on their similarities. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
+---
 
-## Results
+## 1.1 What is Data Science?
 
-**Summary of feature selection**: The main features that were particularly important in influencing resilience are: *Active_coping, Planning , Emotional_support, Positive_reframing, Acceptance, Behavioral_disengagement, Humor* and *Self_blame*.
+**Lecture Notes**: 
+Data Science is an interdisciplinary field that focuses on extracting knowledge and insights from data. It combines expertise from various fields including statistics, computer science, and domain-specific knowledge. 
 
-**K-means clustering**: Firstly, by using the Elbow method, three clusters were chosen. 
+Key points covered:
+- Data Science definition
+- Data Science vs. Data Analytics vs. Machine Learning
+- Real-world applications of Data Science (e.g., healthcare, finance, marketing)
+- The role of a Data Scientist
 
-<img src="figures/elbow.JPG" width="800" height="400"> 
+**Suggested Reading**:
+- "What is Data Science?" (Blog/Article)
+- "Data Science in Practice" (Book chapter)
 
-Then, k-means was conducted and the mean values of the selected coping strategies in each cluster were obtained as 
+---
 
-<img src="figures/coping.JPG" width="800" height="400"> 
+## 1.2 Data Science Workflow
 
-Further, the means of resilience in each cluster are obtained as 
+**Lecture Notes**:  
+The Data Science workflow is a step-by-step process used by data scientists to work through a data problem. Understanding this workflow is essential as it helps in organizing and structuring data projects.
 
-<img src="figures/res.JPG" width="800" height="400"> 
+Key workflow steps include:
+1. **Problem Definition**: Understanding the business problem or research question.
+2. **Data Collection**: Gathering relevant data (e.g., from databases, APIs, surveys).
+3. **Data Cleaning**: Handling missing values, correcting errors, etc.
+4. **Exploratory Data Analysis (EDA)**: Visualizing and summarizing the data.
+5. **Modeling**: Applying machine learning or statistical models.
+6. **Evaluation**: Assessing the model’s performance.
+7. **Communication**: Presenting the insights to stakeholders.
 
-Based on these results, the main attributes of each cluster are summarized as follows:
+**Suggested Reading**:
+- "The Data Science Process" (KDnuggets article)
+- "The CRISP-DM Methodology" (PDF)
 
-_Cluster 1_: This cluster includes juveniles with the most resilience. They had high average for Active_coping, Emotional_support, Acceptance, planning and Positive_reframing and low average in Behavioral_disengagement, Self_blame and Humor.
+---
 
-_Cluster 2_: juveniles with the moderate resilience. This group had moderate average in almost all features and high average for Active_coping and Acceptance.
+## 1.3 Tools and Technologies in Data Science
 
-_Cluster 0_: This group had the lowest value of resilience characteristic. Active_coping, Emotional_support, Acceptance, planning and Positive_reframing were minimum for these juveniles.
+**Lecture Notes**:
+An overview of the essential tools and technologies used by data scientists:
+- **Programming Languages**: Python and R
+- **Libraries and Frameworks**:
+  - **Pandas**: Data manipulation
+  - **NumPy**: Numerical operations
+  - **Matplotlib & Seaborn**: Visualization
+  - **Scikit-learn**: Machine learning
+  - **Jupyter Notebooks**: Interactive coding
+
+**Exercise**:
+- Install Python (or Anaconda distribution) and set up your environment.
+- Install Jupyter Notebook.
+- Install basic libraries: `numpy`, `pandas`, `matplotlib`.
+
+**Suggested Reading**:
+- [Python for Data Science](https://docs.python.org/3/)
+- "Getting started with Jupyter Notebooks" (Official Docs)
+
+---
+
+## 1.4 Setting Up Your Python Environment
+
+**Exercise**: 
+1. **Installing Python**: If you don't have Python installed, follow the instructions on how to install Python or the Anaconda distribution.
+2. **Jupyter Notebooks**: Install and launch Jupyter notebooks.
+    - Example command:
+      ```bash
+      pip install jupyter
+      jupyter notebook
+      ```
+3. **Installing Data Science Libraries**:
+    - Install the libraries that will be used throughout the course:
+      ```bash
+      pip install numpy pandas matplotlib seaborn scikit-learn
+      ```
+4. **Explore Jupyter Notebook**: Write a basic Python script (e.g., print "Hello, Data Science!") and explore basic operations.
+
+**Exercise Notebook**:
+Create a new Jupyter notebook where you:
+- Write basic Python operations (print, basic math).
+- Import and use basic libraries like `numpy` and `pandas`.
+
+---
 
 
 
+## Summary
 
+This module introduced the fundamentals of Data Science, the typical workflow, and essential tools you'll use throughout the course. You set up your Python environment and performed basic exploratory data analysis using Jupyter Notebooks.
 
+In the next module, we will dive deeper into **Data Collection and Cleaning**, where you’ll learn how to acquire and prepare datasets for analysis.
 
+---
 
+## Additional Resources
+
+- **Books**:
+  - "Python Data Science Handbook" by Jake VanderPlas
+  - "Data Science from Scratch" by Joel Grus
+- **Courses**:
+  - [Kaggle Learn: Python](https://www.kaggle.com/learn/python)
+  - [Coursera: Introduction to Data Science](https://www.coursera.org/learn/what-is-datascience)
+
+---
 
