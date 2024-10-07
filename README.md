@@ -20,17 +20,18 @@ The course is divided into several modules, each focusing on a different aspect 
   
 Each module will focus on a core component of Data Science:
 1. **Introduction to Data Science**
-2. **Data Collection and Cleaning**
-3. **Exploratory Data Analysis (EDA)**
-4. **Data Visualization**
-5. **Statistical Inference**
-6. **Machine Learning Basics**
-7. **Supervised Learning**
-8. **Unsupervised Learning**
-9. **Feature Engineering**
-10. **Model Evaluation and Tuning**
-11. **Introduction to Deep Learning**
-12. **Final Project**
+2. **Python Basics**
+3. **Data Collection and Cleaning**
+4. **Exploratory Data Analysis (EDA)**
+5. **Data Visualization**
+6. **Statistical Inference**
+7. **Machine Learning Basics**
+8. **Supervised Learning**
+9. **Unsupervised Learning**
+10. **Feature Engineering**
+11. **Model Evaluation and Tuning**
+12. **Introduction to Deep Learning**
+13. **Final Project**
 
 ## 🚀 How to Get Started
 
@@ -39,20 +40,14 @@ Each module will focus on a core component of Data Science:
    git clone https://github.com/your-username/data-science-course-fall2024.git
    ```
 
-2. **Environment Setup**: To work with the provided Jupyter notebooks, you will need to set up the necessary environment. We recommend using `conda` or `pip` to install the required dependencies.
-   - Install dependencies using the `requirements.txt` file:
-     ```bash
-     pip install -r requirements.txt
-     ```
+2. **Navigating the Modules**: Each module has its own folder with specific materials, exercises, and projects. Follow the order of modules as outlined in the syllabus, and complete the exercises before moving to the next module.
 
-3. **Navigating the Modules**: Each module has its own folder with specific materials, exercises, and projects. Follow the order of modules as outlined in the syllabus, and complete the exercises before moving to the next module.
-
-4. **Working with Jupyter Notebooks**: Jupyter notebooks will be used throughout the course for coding exercises. You can launch Jupyter by running:
+3. **Working with Jupyter Notebooks**: Jupyter notebooks will be used throughout the course for coding exercises. You can launch Jupyter by running:
    ```bash
    jupyter notebook
    ```
 
-5. **Submitting Assignments**: Each exercise and project folder will include submission instructions. Typically, you’ll be asked to submit your Jupyter notebook solutions via a pull request or directly on the course platform.
+4. **Submitting Assignments**: Each exercise and project folder will include submission instructions. Typically, you’ll be asked to submit your Jupyter notebook solutions via a pull request or directly on the course platform.
 
 ## 📁 Repository Structure
 
@@ -80,14 +75,15 @@ Each module will focus on a core component of Data Science:
 
 ## 📅 Course Timeline
 
-This course runs for **12 weeks**, with each week focusing on a specific module. The recommended timeline is as follows:
+This course runs for **14 weeks**, with each week focusing on a specific module. The recommended timeline is as follows:
 
 - **Week 1-2**: Introduction to Data Science & Data Collection
-- **Week 3-4**: Data Cleaning & EDA
-- **Week 5-6**: Data Visualization & Statistical Inference
-- **Week 7-8**: Machine Learning Basics & Supervised Learning
-- **Week 9-10**: Unsupervised Learning & Feature Engineering
-- **Week 11-12**: Model Evaluation & Final Project
+- **Week 3-4**: Python Basics
+- **Week 5-6**: Data Cleaning & EDA
+- **Week 7-8**: Data Visualization & Statistical Inference
+- **Week 9-10**: Machine Learning Basics & Supervised Learning
+- **Week 11-12**: Unsupervised Learning & Feature Engineering
+- **Week 13-14**: Model Evaluation & Final Project
 
 ## 🛠 Tools and Technologies
 
