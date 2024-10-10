@@ -1,6 +1,6 @@
 ---
 
-# Module 1: Introduction to Data Science
+# Introduction to Data Science
 
 Welcome to the first module of the course! This module introduces you to the world of Data Science, its scope, and the role of a Data Scientist.
 
