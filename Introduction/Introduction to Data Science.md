@@ -2,11 +2,13 @@
 
 # Module 1: Introduction to Data Science
 
-This module will provide students with a strong foundation in what Data Science is, its applications, and the basic tools they’ll need to move forward in the course.
+Welcome to the first module of the course! This module introduces you to the world of Data Science, its scope, and the role of a Data Scientist.
+
 
 ## Overview
 
-Welcome to the first module of the course! This module introduces you to the world of Data Science, its scope, and the role of a Data Scientist. By the end of this module, you will have a strong understanding of:
+This module will provide students with a strong foundation in what Data Science is, its applications, and the basic tools they’ll need to move forward in the course. By the end of this module, you will have a strong understanding of:
+
 - What Data Science is
 - Key concepts, terminology, and workflow in Data Science
 - Tools used in Data Science
@@ -60,19 +62,23 @@ Key workflow steps include:
 
 ---
 
-## 1.3 Tools and Technologies in Data Science
+## **Roles in Data Science**
+- **Data Scientist**: Responsible for building models and analyzing data.
+- **Data Engineer**: Focuses on data infrastructure and pipeline creation.
+- **Machine Learning Engineer**: Builds and maintains machine learning models.
+- **Data Analyst**: Interprets data and provides insights through reports.
+- **Business Analyst**: Bridges the gap between business needs and data insights.
 
-**Lecture Notes**:
-An overview of the essential tools and technologies used by data scientists:
-- **Programming Languages**: Python and R
-- **Libraries and Frameworks**:
-  - **Pandas**: Data manipulation
-  - **NumPy**: Numerical operations
-  - **Matplotlib & Seaborn**: Visualization
-  - **Scikit-learn**: Machine learning
-  - **Jupyter Notebooks**: Interactive coding
+## **Tools and Technologies**
+- **Programming Languages**: Python, R.
+- **Libraries**: Pandas, NumPy, Scikit-learn.
+- **Data Visualization**: Matplotlib, Seaborn.
+- **Big Data Tools**: Hadoop, Spark.
+- **Notebooks**: Jupyter, Colab for interactive coding.
 
-**Exercise**:
+
+
+ **Exercise**:
 - Install Python (or Anaconda distribution) and set up your environment.
 - Install Jupyter Notebook.
 - Install basic libraries: `numpy`, `pandas`, `matplotlib`.
