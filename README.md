@@ -72,6 +72,7 @@ In this course, we will be using the following tools and libraries:
 - **Matplotlib/Seaborn**: For data visualization.
 - **Scikit-Learn**: For machine learning algorithms.
 - **Jupyter Notebooks**: For interactive coding.
+- - **Google Colab**: For collaborative and team-based working.
   
 ## 🌟 Final Project
 
