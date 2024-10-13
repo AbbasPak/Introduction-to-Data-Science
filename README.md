@@ -49,29 +49,7 @@ Each module will focus on a core component of Data Science:
 
 4. **Submitting Assignments**: Each exercise and project folder will include submission instructions. Typically, you’ll be asked to submit your Jupyter notebook solutions via a pull request or directly on the course platform.
 
-## 📁 Repository Structure
 
-```bash
-├── Module_01_Introduction/
-│   ├── lecture_notes.md
-│   ├── exercises/
-│   ├── notebooks/
-│   └── readings/
-├── Module_02_Data_Collection_and_Cleaning/
-│   ├── lecture_notes.md
-│   ├── exercises/
-│   ├── notebooks/
-│   └── readings/
-├── ...
-├── Module_12_Final_Project/
-│   ├── project_instructions.md
-│   ├── datasets/
-│   ├── notebook.ipynb
-│   └── submission_guidelines.md
-├── README.md
-├── requirements.txt
-└── syllabus.pdf
-```
 
 ## 📅 Course Timeline
 
