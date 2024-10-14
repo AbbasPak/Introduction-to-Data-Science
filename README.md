@@ -4,7 +4,7 @@ The content of this course is still under construction and will be updated throu
 
 ---
 
-# Data Science Course - Fall 2024
+# Data Science Course 
 
 Welcome to the **Data Science Course** repository for the Fall 2024 semester! This course is designed to provide a comprehensive introduction to Data Science, covering key concepts, tools, and techniques used in the field. Whether you are a beginner or have some prior experience, this course will help you build a solid foundation and enable you to work on practical projects.
 
