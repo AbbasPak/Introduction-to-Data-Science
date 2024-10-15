@@ -1,57 +1,252 @@
-# K-Means Clustering for the coping strategies of Brief COPE Questionnaire
-This repository contains the code and results of a `K-means clustering` implementation to extract different groups of `coping strategies` that influence `resilience`.  
 
-# Note: This repository is being built and will be completed in the next one day
+# Python Basics for Data Science
+
+Welcome to the "Python Basics for Data Science"! This module is designed to teach you the fundamental concepts of Python, which is the core programming language for data science. Whether you're a complete beginner or just looking to solidify your understanding of Python basics, this guide will help you build a strong foundation.
+
 ## Table of Contents
-+ Introduction
-+ Data
-+ Methodology
-+ Results
+1. [Introduction to Python](#introduction-to-python)
+2. [Setting Up the Environment](#setting-up-the-environment)
+3. [Basic Syntax](#basic-syntax)
+4. [Variables and Data Types](#variables-and-data-types)
+5. [Operators](#operators)
+6. [Control Flow (if-else, loops)](#control-flow-if-else-loops)
+7. [Functions](#functions)
+8. [Data Structures](#data-structures)
+   - Lists
+   - Tuples
+   - Dictionaries
+   - Sets
+9. [File Handling](#file-handling)
+10. [Exception Handling](#exception-handling)
+11. [Basic Libraries for Data Science](#basic-libraries-for-data-science)
+    - Numpy
+    - Pandas
+12. [Next Steps](#next-steps)
 
-## Introduction
+---
 
-The [Brief COPE](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/cope.rst) is a widely used self-report questionnaire that assesses coping strategies individuals use when faced with stress or challenging situations. The questionnaire consists of 28 items that measure 14 coping strategies *Self-distraction, Denial, Substance Use, Behavioural disengagement, Emotional Support, Venting, Humour, Acceptance, Self-Blame, Religion, Active Coping, Use of Instrumental Support, Positive Reframing*, and *Planning*.
+## Introduction to Python
+Python is an interpreted, high-level, and general-purpose programming language. It is one of the most popular languages for data science due to its readability, simplicity, and vast ecosystem of libraries for machine learning, data analysis, and visualization.
 
-Understanding coping strategies’ impact on psychological `well-being` is key to identifying strategies that may serve as resources for successful adaptation. Existing research has explored the relationship between coping styles and various mental health variables, such as resilience. `Resilience` might be seen as a personality trait—a positive, distinct feature of an individual that mitigates the negative effects of stress and minimizes episodes of depression. 
+---
 
-In this project, we apply the k-means clustering algorithm to cluster the coping strategies. The goal is to identify distinct groups of coping strategies that influence resilience. To do this, we first use different feature selection methods to extract important strategies that influence resilience. Then, we employ k-means clustering to cluster these coping strategies. Finally, by comparing the obtained clusters, strategies that can improve resilience are introduced.
+## Setting Up the Environment
+Before we dive into Python basics, let’s set up a Python environment.
 
-## Data 
-We utilized a preexisting dataset provided by Konaszewski et al. (Konaszewski K, Niesiobędzka M, Surzykiewicz J. Resilience and mental health among juveniles: role of strategies for coping with stress. Health Qual Life Outcomes. 2021 Feb 18;19(1):58) https://doi.org/10.3886/E120001V1. They investigate the direct and indirect role of resilience in shaping the mental health of juveniles. The dataset includes resilience and 14 coping strategies. 
+1. **Install Python**:
+   Download and install Python from the official site: [Python Downloads](https://www.python.org/downloads/)
+   
+2. **Set up a code editor**:
+   Install a code editor such as [VS Code](https://code.visualstudio.com/) or [PyCharm](https://www.jetbrains.com/pycharm/).
 
-## Methodology
-### Feature Selection
-Before applying k-means clustering, we employ various feature selection techniques to extract important coping strategies that significantly influence resilience. The selected coping strategies are then used as input for the clustering algorithm. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
-### Clustering 
-Once the relevant coping strategies are identified, we utilize the [k-means clustering algorithm](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/kmeans.rst) to group them into distinct clusters 
-based on their similarities. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
+3. **Set up Jupyter Notebook**:
+   Jupyter Notebooks are widely used in the data science community.
+   Install Jupyter with:
+   ```bash
+   pip install notebook
+   ```
+   Launch Jupyter Notebook using:
+   ```bash
+   jupyter notebook
+   ```
 
-## Results
+---
 
-**Summary of feature selection**: The main features that were particularly important in influencing resilience are: *Active_coping, Planning , Emotional_support, Positive_reframing, Acceptance, Behavioral_disengagement, Humor* and *Self_blame*.
+## Basic Syntax
+Let's start with the basic syntax of Python. Here are some key components:
 
-**K-means clustering**: Firstly, by using the Elbow method, three clusters were chosen. 
+- **Printing to console**:
+   ```python
+   print("Hello, World!")
+   ```
 
-<img src="figures/elbow.JPG" width="800" height="400"> 
+- **Comments**:
+   ```python
+   # This is a single-line comment
+   
+   """
+   This is a multi-line comment.
+   """
+   ```
 
-Then, k-means was conducted and the mean values of the selected coping strategies in each cluster were obtained as 
+- **Indentation**:
+   Indentation is used to define blocks of code. Python uses spaces or tabs to do this.
+   ```python
+   if 5 > 2:
+       print("Five is greater than two!")
+   ```
 
-<img src="figures/coping.JPG" width="800" height="400"> 
+---
 
-Further, the means of resilience in each cluster are obtained as 
+## Variables and Data Types
+Python is dynamically typed, meaning variables don't need explicit declarations.
 
-<img src="figures/res.JPG" width="800" height="400"> 
+- **Assigning values to variables**:
+   ```python
+   x = 5
+   y = "Hello"
+   z = 3.14
+   ```
 
-Based on these results, the main attributes of each cluster are summarized as follows:
+- **Common Data Types**:
+   - `int` (Integer): Whole numbers.
+   - `float`: Numbers with decimals.
+   - `str` (String): Sequence of characters.
+   - `bool` (Boolean): `True` or `False`.
+   - `None`: Represents the absence of a value.
 
-_Cluster 1_: This cluster includes juveniles with the most resilience. They had high average for Active_coping, Emotional_support, Acceptance, planning and Positive_reframing and low average in Behavioral_disengagement, Self_blame and Humor.
+---
 
-_Cluster 2_: juveniles with the moderate resilience. This group had moderate average in almost all features and high average for Active_coping and Acceptance.
+## Operators
+Python supports several types of operators:
 
-_Cluster 0_: This group had the lowest value of resilience characteristic. Active_coping, Emotional_support, Acceptance, planning and Positive_reframing were minimum for these juveniles.
+1. **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%`, `**` (exponentiation), `//` (floor division)
+   ```python
+   a = 10
+   b = 3
+   print(a + b, a - b, a * b, a / b, a % b)
+   ```
 
+2. **Comparison Operators**: `==`, `!=`, `>`, `<`, `>=`, `<=`
+3. **Logical Operators**: `and`, `or`, `not`
+4. **Assignment Operators**: `=`, `+=`, `-=`, etc.
 
+---
 
+## Control Flow (if-else, loops)
+### **Conditional Statements**:
+```python
+x = 10
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is 5")
+else:
+    print("x is less than 5")
+```
+
+### **Loops**:
+#### **for loop**:
+```python
+for i in range(5):
+    print(i)
+```
+
+#### **while loop**:
+```python
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+
+---
+
+## Functions
+Functions are reusable blocks of code.
+
+### **Defining a Function**:
+```python
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+```
+
+### **Lambda Functions**:
+Short, anonymous functions:
+```python
+add = lambda x, y: x + y
+print(add(3, 5))
+```
+
+---
+
+## Data Structures
+
+### **Lists**:
+Ordered and mutable collections.
+```python
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)
+```
+
+### **Tuples**:
+Ordered but immutable collections.
+```python
+coordinates = (10, 20)
+```
+
+### **Dictionaries**:
+Unordered collections of key-value pairs.
+```python
+student = {"name": "John", "age": 20}
+print(student["name"])
+```
+
+### **Sets**:
+Unordered collections of unique elements.
+```python
+unique_numbers = {1, 2, 3, 4, 5}
+```
+
+---
+
+## File Handling
+Python allows you to work with files, such as reading from or writing to them.
+
+```python
+# Writing to a file
+with open("file.txt", "w") as file:
+    file.write("Hello, World!")
+
+# Reading from a file
+with open("file.txt", "r") as file:
+    content = file.read()
+    print(content)
+```
+
+---
+
+## Exception Handling
+Handle errors and exceptions in your code to prevent crashes.
+
+```python
+try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+finally:
+    print("This will always execute.")
+```
+
+---
+
+## Basic Libraries for Data Science
+
+### Numpy
+Numpy is a library used for numerical computations in Python.
+
+```python
+import numpy as np
+array = np.array([1, 2, 3, 4])
+print(array)
+```
+
+### Pandas
+Pandas is a powerful data manipulation library.
+
+```python
+import pandas as pd
+data = pd.DataFrame({
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Age": [24, 27, 22]
+})
+print(data)
+```
+
+---
 
 
 
