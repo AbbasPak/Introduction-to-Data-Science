@@ -1,59 +1,60 @@
-# K-Means Clustering for the coping strategies of Brief COPE Questionnaire
-This repository contains the code and results of a `K-means clustering` implementation to extract different groups of `coping strategies` that influence `resilience`.  
+## Exploratory Data Analysis
 
-# Note: This repository is being built and will be completed in the next one day
-## Table of Contents
-+ Introduction
-+ Data
-+ Methodology
-+ Results
+Exploratory Data Analysis (EDA) is an approach used in statistics and data science to analyze data sets, summarize their main characteristics, and uncover patterns, anomalies, or relationships before formal modeling. The primary purpose of EDA is to understand the data's structure, check assumptions, and guide the selection of appropriate statistical models or machine learning algorithms.
 
-## Introduction
+The typical steps of EDA are as flollows:
 
-The [Brief COPE](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/cope.rst) is a widely used self-report questionnaire that assesses coping strategies individuals use when faced with stress or challenging situations. The questionnaire consists of 28 items that measure 14 coping strategies *Self-distraction, Denial, Substance Use, Behavioural disengagement, Emotional Support, Venting, Humour, Acceptance, Self-Blame, Religion, Active Coping, Use of Instrumental Support, Positive Reframing*, and *Planning*.
+### 1. **Data Collection and Understanding the Context**
+   - **Objective**: Understand the purpose of the analysis, the source of the data, and any specific research questions.
+   - **Steps**: Identify data sources, gather data, and understand the context around it—such as its origin, relevant variables, and relationships with the problem being solved.
 
-Understanding coping strategies’ impact on psychological `well-being` is key to identifying strategies that may serve as resources for successful adaptation. Existing research has explored the relationship between coping styles and various mental health variables, such as resilience. `Resilience` might be seen as a personality trait—a positive, distinct feature of an individual that mitigates the negative effects of stress and minimizes episodes of depression. 
+### 2. **Data Cleaning**
+   - **Objective**: Prepare the dataset for analysis by handling errors or inconsistencies.
+   - **Steps**:
+     - **Handle missing values**: Decide on techniques such as deletion, imputation, or keeping them based on the proportion of missing values and their potential impact.
+     - **Remove duplicates**: Check for and remove any duplicate records that may distort analysis.
+     - **Correct data types**: Ensure each column's data type (e.g., integers, dates, categories) is appropriate for analysis.
+     - **Outlier detection**: Identify and address outliers, either by capping/extending values or removing them, depending on their relevance and impact on results.
+   
+### 3. **Univariate Analysis**
+   - **Objective**: Examine each variable individually to understand its distribution and basic properties.
+   - **Steps**:
+     - **For numerical variables**: Use descriptive statistics (mean, median, mode, standard deviation) and visualizations like histograms, box plots, and density plots to understand the variable’s distribution.
+     - **For categorical variables**: Calculate frequency counts and visualize with bar charts or pie charts to explore distribution and dominant categories.
 
-In this project, we apply the k-means clustering algorithm to cluster the coping strategies. The goal is to identify distinct groups of coping strategies that influence resilience. To do this, we first use different feature selection methods to extract important strategies that influence resilience. Then, we employ k-means clustering to cluster these coping strategies. Finally, by comparing the obtained clusters, strategies that can improve resilience are introduced.
+### 4. **Bivariate Analysis**
+   - **Objective**: Explore relationships between two variables to find potential associations.
+   - **Steps**:
+     - **Numerical vs. Numerical**: Use scatter plots and correlation coefficients (e.g., Pearson, Spearman) to check for linear or nonlinear relationships.
+     - **Numerical vs. Categorical**: Use box plots, violin plots, or group means to compare distributions of the numerical variable across categories.
+     - **Categorical vs. Categorical**: Use cross-tabulations or heatmaps to examine the association between two categorical variables.
 
-## Data 
-We utilized a preexisting dataset provided by Konaszewski et al. (Konaszewski K, Niesiobędzka M, Surzykiewicz J. Resilience and mental health among juveniles: role of strategies for coping with stress. Health Qual Life Outcomes. 2021 Feb 18;19(1):58) https://doi.org/10.3886/E120001V1. They investigate the direct and indirect role of resilience in shaping the mental health of juveniles. The dataset includes resilience and 14 coping strategies. 
+### 5. **Multivariate Analysis**
+   - **Objective**: Explore complex interactions between multiple variables to gain deeper insights.
+   - **Steps**:
+     - **Heatmaps and Pair Plots**: Visualize correlations across multiple variables.
+     - **Dimensionality Reduction**: Techniques like Principal Component Analysis (PCA) can help reduce the complexity and visualize relationships in high-dimensional data.
+     - **Advanced Plotting**: Use 3D scatter plots or faceted plotting for deeper insights when dealing with multiple dimensions.
 
-## Methodology
-### Feature Selection
-Before applying k-means clustering, we employ various feature selection techniques to extract important coping strategies that significantly influence resilience. The selected coping strategies are then used as input for the clustering algorithm. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
-### Clustering 
-Once the relevant coping strategies are identified, we utilize the [k-means clustering algorithm](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/kmeans.rst) to group them into distinct clusters 
-based on their similarities. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
+### 6. **Feature Engineering and Transformation**
+   - **Objective**: Prepare the data for further modeling by creating meaningful features.
+   - **Steps**:
+     - **Transformations**: Apply log transformations, scaling, or normalization to address skewed distributions or differing variable ranges.
+     - **Encoding Categorical Variables**: Convert categorical variables into numerical format (e.g., one-hot encoding).
+     - **Feature Creation**: Create new features based on domain knowledge (e.g., interaction terms, ratios, etc.).
 
-## Results
+### 7. **Checking Assumptions**
+   - **Objective**: Ensure the data meets the assumptions of any statistical methods or machine learning algorithms to be used.
+   - **Steps**:
+     - **Normality**: Check if data follows a normal distribution using Q-Q plots or the Shapiro-Wilk test, especially if methods assuming normality are to be applied.
+     - **Homogeneity of Variance**: Use Levene’s or Bartlett’s test to check if variances across groups are similar.
+     - **Linearity and Multicollinearity**: Ensure linearity (for linear models) and check for multicollinearity in predictors using correlation matrices or VIF scores.
 
-**Summary of feature selection**: The main features that were particularly important in influencing resilience are: *Active_coping, Planning , Emotional_support, Positive_reframing, Acceptance, Behavioral_disengagement, Humor* and *Self_blame*.
+### 8. **Summary and Reporting**
+   - **Objective**: Document findings from the EDA process, including data quality issues, insights, and potential next steps.
+   - **Steps**:
+     - Summarize key statistics, relationships, and patterns observed in the data.
+     - Highlight any anomalies, potential model features, and limitations noted during EDA.
+     - Prepare visualizations and tables to support findings for presentation or documentation.
 
-**K-means clustering**: Firstly, by using the Elbow method, three clusters were chosen. 
-
-<img src="figures/elbow.JPG" width="800" height="400"> 
-
-Then, k-means was conducted and the mean values of the selected coping strategies in each cluster were obtained as 
-
-<img src="figures/coping.JPG" width="800" height="400"> 
-
-Further, the means of resilience in each cluster are obtained as 
-
-<img src="figures/res.JPG" width="800" height="400"> 
-
-Based on these results, the main attributes of each cluster are summarized as follows:
-
-_Cluster 1_: This cluster includes juveniles with the most resilience. They had high average for Active_coping, Emotional_support, Acceptance, planning and Positive_reframing and low average in Behavioral_disengagement, Self_blame and Humor.
-
-_Cluster 2_: juveniles with the moderate resilience. This group had moderate average in almost all features and high average for Active_coping and Acceptance.
-
-_Cluster 0_: This group had the lowest value of resilience characteristic. Active_coping, Emotional_support, Acceptance, planning and Positive_reframing were minimum for these juveniles.
-
-
-
-
-
-
-
-
+Through these steps, EDA provides a foundation for understanding data deeply, refining research questions, and guiding the selection of appropriate analytical or modeling techniques.
