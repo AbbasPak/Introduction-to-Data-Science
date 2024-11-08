@@ -1,59 +1,131 @@
-# K-Means Clustering for the coping strategies of Brief COPE Questionnaire
-This repository contains the code and results of a `K-means clustering` implementation to extract different groups of `coping strategies` that influence `resilience`.  
+Handling missing data is an important part of data cleaning and preprocessing in Python, especially when using libraries like `pandas`. Different types of missing data can occur in different ways, such as NaN values, empty strings, or missing rows. Below are various methods to handle different types of missing data in Python.
 
-# Note: This repository is being built and will be completed in the next one day
-## Table of Contents
-+ Introduction
-+ Data
-+ Methodology
-+ Results
+### 1. Import Required Libraries
+Make sure to have pandas installed:
+```python
+import pandas as pd
+import numpy as np
+```
 
-## Introduction
+### 2. Identifying Missing Values
+Pandas provides several functions to check for missing data.
 
-The [Brief COPE](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/cope.rst) is a widely used self-report questionnaire that assesses coping strategies individuals use when faced with stress or challenging situations. The questionnaire consists of 28 items that measure 14 coping strategies *Self-distraction, Denial, Substance Use, Behavioural disengagement, Emotional Support, Venting, Humour, Acceptance, Self-Blame, Religion, Active Coping, Use of Instrumental Support, Positive Reframing*, and *Planning*.
+```python
+# Sample DataFrame
+data = {
+    'A': [1, 2, np.nan, 4],
+    'B': [np.nan, 'text', 'sample', ''],
+    'C': [10, None, 20, 30]
+}
+df = pd.DataFrame(data)
 
-Understanding coping strategies’ impact on psychological `well-being` is key to identifying strategies that may serve as resources for successful adaptation. Existing research has explored the relationship between coping styles and various mental health variables, such as resilience. `Resilience` might be seen as a personality trait—a positive, distinct feature of an individual that mitigates the negative effects of stress and minimizes episodes of depression. 
+# Check for missing values
+print(df.isnull())       # True for NaN and None values
+print(df.isna())         # Same as isnull()
+print(df.isnull().sum()) # Count of missing values in each column
+```
 
-In this project, we apply the k-means clustering algorithm to cluster the coping strategies. The goal is to identify distinct groups of coping strategies that influence resilience. To do this, we first use different feature selection methods to extract important strategies that influence resilience. Then, we employ k-means clustering to cluster these coping strategies. Finally, by comparing the obtained clusters, strategies that can improve resilience are introduced.
+### 3. Dropping Missing Values
+Dropping rows or columns with missing values is a common strategy, especially if missing values are few.
 
-## Data 
-We utilized a preexisting dataset provided by Konaszewski et al. (Konaszewski K, Niesiobędzka M, Surzykiewicz J. Resilience and mental health among juveniles: role of strategies for coping with stress. Health Qual Life Outcomes. 2021 Feb 18;19(1):58) https://doi.org/10.3886/E120001V1. They investigate the direct and indirect role of resilience in shaping the mental health of juveniles. The dataset includes resilience and 14 coping strategies. 
+#### Drop rows with any missing values
+```python
+df_dropped_any = df.dropna()
+print(df_dropped_any)
+```
 
-## Methodology
-### Feature Selection
-Before applying k-means clustering, we employ various feature selection techniques to extract important coping strategies that significantly influence resilience. The selected coping strategies are then used as input for the clustering algorithm. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
-### Clustering 
-Once the relevant coping strategies are identified, we utilize the [k-means clustering algorithm](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/kmeans.rst) to group them into distinct clusters 
-based on their similarities. [Notebook](https://github.com/AbbasPak/K-Means-Clustering-in-psychology-Case-study/blob/main/clustering%20coping.ipynb)
+#### Drop rows only if all values are missing
+```python
+df_dropped_all = df.dropna(how='all')
+print(df_dropped_all)
+```
 
-## Results
+#### Drop columns with any missing values
+```python
+df_dropped_cols = df.dropna(axis=1)
+print(df_dropped_cols)
+```
 
-**Summary of feature selection**: The main features that were particularly important in influencing resilience are: *Active_coping, Planning , Emotional_support, Positive_reframing, Acceptance, Behavioral_disengagement, Humor* and *Self_blame*.
+### 4. Filling Missing Values
+There are different methods to fill missing values based on the type of data and analysis requirements.
 
-**K-means clustering**: Firstly, by using the Elbow method, three clusters were chosen. 
+#### Fill with a specific value (e.g., 0)
+```python
+df_filled_zero = df.fillna(0)
+print(df_filled_zero)
+```
 
-<img src="figures/elbow.JPG" width="800" height="400"> 
+#### Fill with a specific value for each column
+```python
+fill_values = {'A': df['A'].mean(), 'B': 'unknown', 'C': df['C'].median()}
+df_filled_custom = df.fillna(value=fill_values)
+print(df_filled_custom)
+```
 
-Then, k-means was conducted and the mean values of the selected coping strategies in each cluster were obtained as 
+#### Forward Fill (use the previous value)
+```python
+df_filled_ffill = df.fillna(method='ffill')
+print(df_filled_ffill)
+```
 
-<img src="figures/coping.JPG" width="800" height="400"> 
+#### Backward Fill (use the next value)
+```python
+df_filled_bfill = df.fillna(method='bfill')
+print(df_filled_bfill)
+```
 
-Further, the means of resilience in each cluster are obtained as 
+### 5. Replacing Empty Strings with NaN
+Empty strings might not be detected as missing values by default, so convert them to `NaN` first.
 
-<img src="figures/res.JPG" width="800" height="400"> 
+```python
+# Replace empty strings with NaN
+df.replace('', np.nan, inplace=True)
+print(df.isnull().sum())  # Check missing values again
+```
 
-Based on these results, the main attributes of each cluster are summarized as follows:
+### 6. Interpolating Missing Values
+Interpolation is useful for numeric data, especially in time series.
 
-_Cluster 1_: This cluster includes juveniles with the most resilience. They had high average for Active_coping, Emotional_support, Acceptance, planning and Positive_reframing and low average in Behavioral_disengagement, Self_blame and Humor.
+```python
+# Linear interpolation
+df_interpolated = df.interpolate(method='linear')
+print(df_interpolated)
+```
 
-_Cluster 2_: juveniles with the moderate resilience. This group had moderate average in almost all features and high average for Active_coping and Acceptance.
+### 7. Dropping Duplicates that Might Represent Missing Data
+Sometimes, duplicated rows can represent missing or redundant information. This can be handled using `drop_duplicates`.
 
-_Cluster 0_: This group had the lowest value of resilience characteristic. Active_coping, Emotional_support, Acceptance, planning and Positive_reframing were minimum for these juveniles.
+```python
+df_unique = df.drop_duplicates()
+print(df_unique)
+```
 
+### 8. Dealing with Outliers as Missing Data
+In some cases, outliers are treated as missing data. You can detect outliers using statistical methods and replace them.
 
+#### Example: Replace outliers with NaN
+```python
+# Identify outliers in column 'A' using Z-score
+df['A'] = df['A'].apply(lambda x: np.nan if (x - df['A'].mean()) / df['A'].std() > 3 else x)
+print(df)
+```
 
+### 9. Using Scikit-Learn's `SimpleImputer` for Imputation
+The `SimpleImputer` class provides more flexible imputation options, including mean, median, most frequent, and constant strategies.
 
+```python
+from sklearn.impute import SimpleImputer
 
+# Impute column 'A' with the mean value
+imputer = SimpleImputer(strategy='mean')
+df['A'] = imputer.fit_transform(df[['A']])
+print(df)
+```
 
-
-
+### Summary of Missing Data Handling Techniques
+- **Drop rows or columns**: Use `dropna()`.
+- **Fill with a specific value**: Use `fillna()` or `SimpleImputer`.
+- **Forward/Backward Fill**: Use `fillna(method='ffill'/'bfill')`.
+- **Replace empty strings**: Use `replace('', np.nan)`.
+- **Interpolate values**: Use `interpolate()`.
+- **Detect and remove outliers**: Treat them as missing data
